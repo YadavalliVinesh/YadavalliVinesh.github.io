@@ -4,6 +4,7 @@ const products = [
       name: "Product 1",
       desc: "Description of the product. Description of the product. ",
       price: 25,
+      
     },
     {
       id: 2,
@@ -16,7 +17,8 @@ const products = [
       name: "Product 3",
       desc: "Description of the product. Description of the product. ",
       price: 30,
-    },
+      
+    }
   ];
   const cart = {};
   const addToCart = (id) => {
