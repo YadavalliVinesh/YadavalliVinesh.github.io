@@ -6,12 +6,12 @@
   }
   .header {
       padding: 10px;
-      background-color:pink;
+      background-color:rgb(198, 144, 73);
       display: flex;
       justify-content: space-between;
   }
   .productBlock{
-      background-color: silver;
+      background-color: rgb(17, 188, 188);
   }
   .row {
       display: flex;
@@ -24,7 +24,7 @@
       padding: 10px;
   }
   .cartBlock {
-      background-color: silver;
+      background-color: rgb(178, 188, 46);
       width: 300px;
       position: fixed;
       top:0px;
