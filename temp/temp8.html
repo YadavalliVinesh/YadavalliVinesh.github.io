@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let users=[]
+        function showData()
+        {
+            //alert("hello world")
+            let name=document.getElementById("name").value
+            let email=document.getElementById("email").value
+            let password=document.getElementById("password").value
+            let dob=document.getElementById("dob").value
+            //data.innerHTML= name+ " | "+email+" | "+password+" | "+dob
+            let user={
+                name:name,
+                email:email,
+                password:password,
+                dob:dob
+            }
+            users.push(user)
+            console.log(users)
+            let length=users.length
+            let str=""
+            for(let i=0;i<length;i++)
+            {
+                str=str+<li>${users[i].name}-${users[i].email}-${users[i].password}-${users[i].dob}</li>
+            }
+            data.innerHTML=str
+            //data.innerHTML= ${name},${email},${password},${dob}
+        }
+    </script>
+</head>
+<body>
+    <h1>New user Registration</h1>
+    <p><input type="text" id="name" placeholder="Enter Name"></p>
+    <p><input type="text" id="email" placeholder="Enter email address"></p>
+    <p><input type="password" id="password" palceholder="Enter password"></p>
+    <p><input type="datetime-local" id="dob"></p>
+    <button onclick="showData()">Register</button>
+    <hr />
+    <div id="data"></div>
+</body>
+</html>

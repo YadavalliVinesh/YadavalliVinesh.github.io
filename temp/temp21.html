@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .name-container, .dob-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .name-container input, .dob-container select {
+            width: 48%;
+        }
+        button {
+            background-color: #2af218;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #155db2;
+        }
+        img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <img src="Facebook [blogovector.com].png"/>
+        <h2>Create a new account</h2>
+        <p>It's quick and easy.</p>
+        <div class="name-container">
+            <input type="text" id="first-name" placeholder="First Name">
+            <input type="text" id="surname" placeholder="Surname">
+        </div>
+       
+        <div class="dob-container">
+            <select id="dob-day">
+                <option value="">Day</option>
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+            <select id="dob-month">
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="dob-year">
+                <option value="">Year</option>
+                <script>
+                    for (let i = new Date().getFullYear(); i >= 1900; i--) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="New Password">
+        <input type="Confirm password" id="Confirm password" placeholder="Confirm Password">
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <button onclick="registerUser()">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Log In</a></p>
+    </div>
+    <script>
+        function registerUser() {
+            let firstName = document.getElementById("first-name").value;
+            let surname = document.getElementById("surname").value;
+            let dobDay = document.getElementById("dob-day").value;
+            let dobMonth = document.getElementById("dob-month").value;
+            let dobYear = document.getElementById("dob-year").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+          
+            let gender = document.getElementById("gender").value;
+            
+            if(firstName && surname && email && password && dobDay && dobMonth && dobYear && gender) {
+                alert("Account created successfully!");
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+</body>
+</html>
