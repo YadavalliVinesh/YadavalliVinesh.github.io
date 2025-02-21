@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #155db2;
+        }
+        img {
+            width: 150px;
+            height: auto;
+        }
+        #message {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .forgot-password {
+            display: block;
+            margin: 10px 0;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="Facebook [blogovector.com].png" alt="Facebook Logo"/>
+    <div class="container">
+        <h2>Login to Facebook</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        
+        
+        <a href="index8.html" class="forgot-password">Forgot Password?</a>
+
+        <button onclick="loginUser()">Log In</button>
+
+        
+        <p id="message"></p>
+
+        <p>Don't have an account? <a href="index6.html">Sign Up</a></p>
+    </div>
+
+    <script>
+        function loginUser() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            let storedEmail = "vinesh@gmail.com";
+            let storedPassword = "12345";  
+
+            if (email === storedEmail) { 
+                if (password === storedPassword) {  
+                    message.innerHTML = "Welcome Vinesh";  
+                    message.style.color = "green";  
+                } else {  
+                    message.innerHTML = "Invalid Password";  
+                    message.style.color = "red";  
+                }  
+            } else {  
+                message.innerHTML = "Access Denied";  
+                message.style.color = "red";  
+            }
+        }
+    </script>
+</body>
+</html>
