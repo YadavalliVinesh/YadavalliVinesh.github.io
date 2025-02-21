@@ -114,7 +114,7 @@
       let dd = null;
       let mm;
       let yy;
-      let pronoun;
+      let pronoun="NA";
       let g = "";
       const showData = () => {
         firstname = document.getElementById("firstname").value;
@@ -190,6 +190,7 @@
         <select id="month"></select>
         <select id="year"></select>
       </div>
+
       <div class="row" style="justify-content: start">
         <div class="leftCaption">
           Gender<span class="qMark"
@@ -218,40 +219,42 @@
         </div>
       </div>
 
+      <div class="row" style="justify-content: start">
+        <div class="leftCaption">
+          Interests<span class="qMark"
+            ><abbr title="Click for more information">?</abbr></span
+          >
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="radioClass">
+          <div><label> Movies</label></div>
+          <div><input type="checkbox"/></div>
+        </div>
+        <div class="radioClass">
+          <div><label> Music</label></div>
+          <div><input type="checkbox"/></div>
+        </div>
+        <div class="radioClass">
+          <div><label>Sports</label></div>
+          <div><input type="checkbox" /></div>
+        </div>
+      </div>
+
+
      <div class="row">
       <select id="prSelect" style="display:none">
         <option value="NA" >Select your pronoun</option>
-        <option value="She" >She:"Wish her a happy birthday"</option>
+        <option value="She" ${pronoun=="She" && "selected"}>She:"Wish her a happy birthday"</option>
         <option value="He">He:"Wish him a happy birthday"</option>
         <option value="They" >They:"Wish them a happy birthday"</option>
       </select>
      </div>
 
-
-     <div class="row" style="justify-content: start">
-        <div class="leftCaption">
-          Intrests 
-        </div>
-      </div>
-
-
       <div class="row">
-        <div class="radioClass">
-          <input type="checkbox" id="movies" name="movies" value="movies">
-          <label for="movies">Movies</label>
-        </div>
-        <div class="radioClass">
-          <input type="checkbox" id="sports" name="sports" value="sports">
-          <label for="movies">sports</label>
-        </div>
-        <div class="radioClass">
-          <input type="checkbox" id="music" name="music" value="music">
-          <label for="movies">music</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <input type="text" value='${email}' id="email" placeholder="Mobile number or email address" />
+        <input type="text" value='${email}' id="email" placeholder="Mobule number or email address" />
       </div>
       <div class="row">
         <input type="password" value='${password}' id="password" placeholder="New password" />
@@ -285,6 +288,7 @@
           prSelect.style.display = "block";
         } else {
           prSelect.style.display = "none";
+          pronoun="NA"
         }
       };
     </script>
