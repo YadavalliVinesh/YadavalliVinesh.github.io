@@ -43,18 +43,28 @@
             cursor: pointer;
         }
         button:hover {
-            background-color: #155db2;
+            background-color: #28c715;
         }
         img {
             width: 150px;
             height: auto;
+        }
+        #userDetails {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
         }
     </style>
 </head>
 <body>
     
     <div class="container">
-        <img src="Facebook [blogovector.com].png"/>
+        <img src="Facebook [blogovector.com].png" alt="Facebook Logo"/>
         <h2>Create a new account</h2>
         <p>It's quick and easy.</p>
         <div class="name-container">
@@ -97,7 +107,7 @@
         </div>
         <input type="email" id="email" placeholder="Email">
         <input type="password" id="password" placeholder="New Password">
-        <input type="Confirm password" id="Confirm password" placeholder="Confirm Password">
+        <input type="password" id="confirm-password" placeholder="Confirm Password">
         <select id="gender">
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -105,25 +115,52 @@
             <option value="other">Other</option>
         </select>
         <button onclick="registerUser()">Sign Up</button>
-        <p>Already have an account? <a href="#" onclick="showLogin()">Log In</a></p>
+        <p>Already have an account? <a href="temp22.html">Log In</a></p>
     </div>
+
+    <div id="userDetails"></div>
+
     <script>
         function registerUser() {
-            let firstName = document.getElementById("first-name").value;
-            let surname = document.getElementById("surname").value;
+            let firstName = document.getElementById("first-name").value.trim();
+            let surname = document.getElementById("surname").value.trim();
             let dobDay = document.getElementById("dob-day").value;
             let dobMonth = document.getElementById("dob-month").value;
             let dobYear = document.getElementById("dob-year").value;
-            let email = document.getElementById("email").value;
+            let email = document.getElementById("email").value.trim();
             let password = document.getElementById("password").value;
-          
+            let confirmPassword = document.getElementById("confirm-password").value;
             let gender = document.getElementById("gender").value;
-            
-            if(firstName && surname && email && password && dobDay && dobMonth && dobYear && gender) {
-                alert("Account created successfully!");
-            } else {
+            let userDetails = document.getElementById("userDetails");
+
+            if (!firstName || !surname || !email || !password || !confirmPassword || !dobDay || !dobMonth || !dobYear || !gender) {
                 alert("Please fill in all fields.");
+                return;
             }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            alert("Account Successfully Created.");
+
+            userDetails.innerHTML = `
+                <h3>Registered Details</h3>
+                <p><strong>Full Name:</strong> ${firstName} ${surname}</p>
+                <p><strong>Date of Birth:</strong> ${dobDay}-${dobMonth}-${dobYear}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Gender:</strong> ${gender}</p>
+                <button onclick="editDetails()">Edit</button>
+            `;
+            userDetails.style.display = "block";
+        }
+        function editDetails() {
+            document.getElementById("first-name").value = document.querySelector("#userDetails p:nth-of-type(1)").textContent.split(": ")[1].split(" ")[0];
+            document.getElementById("surname").value = document.querySelector("#userDetails p:nth-of-type(1)").textContent.split(": ")[1].split(" ")[1];
+            document.getElementById("email").value = document.querySelector("#userDetails p:nth-of-type(3)").textContent.split(": ")[1];
+            document.getElementById("gender").value = document.querySelector("#userDetails p:nth-of-type(4)").textContent.split(": ")[1];
+            alert("You can now edit your details in the form above.");
         }
     </script>
 </body>
