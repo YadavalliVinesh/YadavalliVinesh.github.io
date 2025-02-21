@@ -6,15 +6,39 @@
     <title>Document</title>
   </head>
   <body>
-    <img src="/assets/images/ball.png" width="200px" id="ball" />
+    <img src="/assets/images/ball.png" width="100px" id="ball" />
+    <img src="/bucket.jpg" width="100px" id="bucket" />
     <script>
+      bucket.style.position = "absolute";
       ball.style.position = "absolute";
       let b = document.body;
-      let down = 0;
+      let left = 0;
+      let down = 400;
+      bucket.style.left = left + "px";
+      bucket.style.top = down + "px";
       b.onkeydown = (e) => {
-        down = down+5;
-        ball.style.top = down + "px";
+        if (e.key == "ArrowRight") left += 5;
+        if (e.key == "ArrowDown") down += 5;
+        if (e.key == "ArrowLeft") left -= 5;
+        if (e.key == "ArrowUp") down -= 5;
+        bucket.style.left = left + "px";
+        bucket.style.top = down + "px";
       };
+      let t = 0;
+      let l = 0
+      function ballFall() {
+        t++;
+        if (t > 400) {
+          t = 1;
+          l = Math.random() * 500;
+        }
+        ball.style.top = t + "px";
+        ball.style.left = l + "px";
+        setTimeout(ballFall, 10);
+      }
+      ballFall();
+
+
     </script>
   </body>
 </html>

@@ -1,156 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/ball.png" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="header-row"> 
-        <div class="box"><h1><i>Yadavalli Vinesh</i></h1></div>
-        <div class="box">
-          <ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinesh Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #f8f9fa;
+        }
+
+        
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 50px;
+            z-index: 1000;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        
+        #home {
+            background: linear-gradient(to right, #000428, #004e92);
+            color: white;
+            text-align: center;
+            padding: 150px 50px;
+        }
+        #home h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        #home p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        
+        button {
+            background: #ffcc00;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff9900;
+        }
+
+        
+        .section {
+            padding: 60px 50px;
+            text-align: center;
+        }
+        .section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        
+        .footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        
+        @media (max-width: 768px) {
+            .header-row {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+            .row {
+                grid-template-columns: 1fr;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="header-row">
+        <div class="logo">Yadavalli Vinesh</div>
+        <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-
             <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row" id="home">
-        <div style="display: flex;padding-top: 50px;">
-          <div class="box">
-            <h1>Full Stack Developer</h1>
-            <p>
-              Hello! I'm Vinesh, a passionate and dedicated Full Stack Developer with expertise in both front-end and back-end technologies. With a deep understanding of the entire web development lifecycle, I specialize in building dynamic, scalable, and user-friendly web applications. From crafting seamless user interfaces to designing robust server-side architectures, I thrive on solving complex challenges and creating impactful solutions.
-            </p>
-            <p>
-              I have hands-on experience with a variety of languages, frameworks, and tools, including HTML, CSS, JavaScript, Node.js, React, Python, and more. Whether you're looking to create a modern website, a cutting-edge application, or streamline your existing tech stack, I'm here to help turn your vision into reality.
-            </p>
-            <button>Button 1</button>
-            <button>Button 1</button>
-          </div>
-          <div class="box">
-            <img src="WhatsApp Image 2025-02-21 at 13.22.50_b8b91d8c.jpg" width="300px" ; height="500px";/>
-          </div>
-        </div>
-      </div>
-
-      <div id="projects" class="row" style="background-color: rgb(167, 222, 115)">
-        <h1>Projects</h1>
-        <div style="display: flex">
-          <div class="box">
-            <a href="p1.html">McDonald’s Lite</a>
-            <p>
-              McDonald's Lite could be a modern, health-conscious version of the classic fast-food chain, offering a menu focused on lower-calorie, organic, and plant-based options while maintaining the brand’s signature flavors. It could feature grilled alternatives, whole-grain buns, fresh salads, and sugar-free beverages, catering to customers looking for a lighter yet satisfying meal. With a sleek, minimalist restaurant design and self-service kiosks, McDonald's Lite could provide a quick, convenient, and guilt-free dining experience. Whether for fitness enthusiasts, calorie-conscious eaters, or those simply seeking a fresh take on fast food, McDonald's Lite could redefine how people enjoy their favorite meals.
-            </p>
-          </div>
-
-          <div class="box">
-            <a href="index1.html">Online Banking</a>
-            <p>
-              Online banking is a convenient and secure way to manage financial transactions without visiting a physical branch. It allows users to check account balances, transfer funds, pay bills, and even apply for loans through a bank’s website or mobile app. With features like mobile deposits, real-time notifications, and investment management, online banking has revolutionized how people handle their finances. Advanced security measures such as encryption, two-factor authentication, and fraud detection ensure the safety of transactions. Available 24/7, online banking provides flexibility and ease, making financial management more efficient and accessible for individuals and businesses alike.
-            </p>
-          </div>
-
-          <div class="box">
-            <a href="index4.html">My Store</a>
-            <p>
-              A store is a place where customers can purchase goods or services, either in a physical location or online. It offers a variety of products, ranging from clothing and electronics to groceries and household essentials. Many modern stores provide convenient shopping experiences through self-checkout, home delivery, and online ordering. With customer service, promotions, and loyalty programs, stores aim to attract and retain shoppers. Whether a small local shop or a large retail chain, a store plays a crucial role in meeting consumer needs and driving economic activity.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="services" class="row" style="background-color: lightblue">
-        <h1>Services</h1>
-        <div style="display: flex">
-          <div class="box">
-            <h3>Web App Development</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              quia nobis eligendi reiciendis. Esse a possimus eum est veritatis
-              aliquid ut eveniet. Et illum odio ut voluptates molestiae?
-              Perspiciatis, ab.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Mobile App Development</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              quia nobis eligendi reiciendis. Esse a possimus eum est veritatis
-              aliquid ut eveniet. Et illum odio ut voluptates molestiae?
-              Perspiciatis, ab.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Backend Development</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              quia nobis eligendi reiciendis. Esse a possimus eum est veritatis
-              aliquid ut eveniet. Et illum odio ut voluptates molestiae?
-              Perspiciatis, ab.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="about" class="row" style="background-color: darksalmon">
-        <h1>About</h1>
-        <h3>
-          Hello! I'm Vinesh, a passionate and dedicated Full Stack Developer with expertise in both front-end and back-end technologies. With a deep understanding of the entire web development lifecycle, I specialize in building dynamic, scalable, and user-friendly web applications. From crafting seamless user interfaces to designing robust server-side architectures, I thrive on solving complex challenges and creating impactful solutions.
-        </h3>
-        <h2>Skills</h2>
-        <h3>Java, Python, Reactjs</h3>
-        <p>Display the logo of all the technologies you know.</p>
-      </div>
-      <div
-        id="contact"
-        class="row"
-        style="background-color: lightgoldenrodyellow"
-      >
-        <h1>Contact</h1>
-        <div style="display: flex">
-         
-
-          <div class="box">
-            <h3>Contact Form</h3>
-            <p>
-             <input type="text" placeholder="Enter Name">
-            </p>
-            <p>
-              <input type="email" placeholder="Enter Email">
-             </p>
-             <p>
-              <textarea rows="10" cols="60" placeholder="Enter message"></textarea>
-             </p>
-             <button>Send</button>
-          </div>
-
-          <div class="box">
-            <h3>Your/Company Name</h3>
-            <p>
-              <b>Address: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              quia nobis eligendi reiciendis. Esse a possimus eum est veritatis
-              aliquid ut eveniet. Et illum odio ut voluptates molestiae?
-              Perspiciatis, ab.
-            </p>
-            <p>
-              <b>Email Address: </b>sample@email.com
-            </p>
-            <p>
-              <b>Phone Number: </b>+91 343 445 6789
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="footer">@copyright 2024. All rights reserved.</div>
+        </ul>
     </div>
-  </body>
+
+    
+    <div id="home" class="section">
+        <h1>Full Stack Developer</h1>
+        <p>Hello! I'm Vinesh, a passionate and dedicated Full Stack Developer with expertise in front-end and back-end technologies.</p>
+        <button>Contact Me</button>
+    </div>
+
+    
+    <div id="projects" class="section" style="background-color: rgb(167, 222, 115)">
+        <h1>Projects</h1>
+        <div class="row">
+            <div class="box">
+                <a href="p1.html">McDonald’s Lite</a>
+                <p>A modern, health-conscious fast food concept with organic and plant-based options.</p>
+            </div>
+            <div class="box">
+                <a href="index1.html">Online Banking</a>
+                <p>A secure and convenient way to manage finances through a digital platform.</p>
+            </div>
+            <div class="box">
+                <a href="index4.html">My Store</a>
+                <p>An online shopping platform with an easy-to-use interface.</p>
+            </div>
+            <div class="box">
+                <a href="index5.html">Ball In Bucket Game</a>
+                <p>An interactive game to test precision and hand-eye coordination.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="services" class="section" style="background-color: lightblue">
+        <h1>Services</h1>
+        <div class="row">
+            <div class="box">
+                <h3>Web Development</h3>
+                <p>Building dynamic, responsive, and scalable web applications.</p>
+            </div>
+            <div class="box">
+                <h3>Mobile App Development</h3>
+                <p>Creating user-friendly mobile applications for Android & iOS.</p>
+            </div>
+            <div class="box">
+                <h3>Backend Development</h3>
+                <p>Developing robust and scalable server-side architectures.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="about" class="section" style="background-color: darksalmon">
+        <h1>About</h1>
+        <p> Hello! I'm Vinesh, a passionate and dedicated Full Stack Developer with expertise in both front-end and back-end technologies. With a deep understanding of the entire web development lifecycle, I specialize in building dynamic, scalable, and user-friendly web applications. From crafting seamless user interfaces to designing robust server-side architectures, I thrive on solving complex challenges and creating impactful solutions.</p><br><br>
+        <p>Skills: Java, Python, React.js</p>
+    </div>
+
+    
+    <div id="contact" class="section" style="background-color: lightgoldenrodyellow">
+        <h1>Contact</h1>
+        <div class="row">
+            <div class="box">
+                <h3>Contact Form</h3>
+                <input type="text" placeholder="Enter Name"><br><br>
+                <input type="email" placeholder="Enter Email"><br><br>
+                <textarea rows="4" cols="30" placeholder="Enter Message"></textarea><br><br>
+                <button>Send</button>
+            </div>
+            <div class="box">
+                <h3>Address</h3>
+                <p>Email: sample@email.com</p>
+                <p>Phone: +91 343 445 6789</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="footer">
+        © 2024 Vinesh. All rights reserved.
+    </div>
+
+</body>
 </html>

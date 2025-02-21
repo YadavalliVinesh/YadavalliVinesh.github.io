@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ball in Bucket Game</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      #score {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="score">Score: 0</div>
+    <img src="/assets/images/ball.png" width="50px" id="ball" />
+    <img src="/bucket.jpg" width="100px" id="bucket" />
+    <script>
+      let score = 0;
+      const scoreDisplay = document.getElementById("score");
+      const ball = document.getElementById("ball");
+      const bucket = document.getElementById("bucket");
+      let left = 200;
+      let down = 400;
+      bucket.style.position = "absolute";
+      ball.style.position = "absolute";
+      bucket.style.left = left + "px";
+      bucket.style.top = down + "px";
+
+      document.body.onkeydown = (e) => {
+        if (e.key === "ArrowRight") left += 10;
+        if (e.key === "ArrowDown") down += 10;
+        if (e.key === "ArrowLeft") left -= 10;
+        if (e.key === "ArrowUp") down -= 10;
+        bucket.style.left = left + "px";
+        bucket.style.top = down + "px";
+      };
+
+      let t = 0;
+      let l = Math.random() * 500;
+      function ballFall() {
+        t += 5;
+        if (t > 400) {
+          checkCollision();
+          t = 0;
+          l = Math.random() * 500;
+        }
+        ball.style.top = t + "px";
+        ball.style.left = l + "px";
+        requestAnimationFrame(ballFall);
+      }
+
+      function checkCollision() {
+        const ballRect = ball.getBoundingClientRect();
+        const bucketRect = bucket.getBoundingClientRect();
+        if (
+          ballRect.left > bucketRect.left &&
+          ballRect.right < bucketRect.right &&
+          ballRect.bottom > bucketRect.top &&
+          ballRect.top < bucketRect.bottom
+        ) {
+          score++;
+          scoreDisplay.innerText = "Score: " + score;
+        }
+      }
+
+      ballFall();
+    </script>
+  </body>
+</html>
