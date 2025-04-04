@@ -4,23 +4,22 @@ import { appContext } from "../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-  const { user, setUser, users } = useContext(appContext);
-  const [msg, setMsg] = useState();
   const Navigate = useNavigate();
+  const { user, setUser, users, setUsers,cart } = useContext(appContext);
+  const [msg, setMsg] = useState();
   const handleSubmit = () => {
     const found = users.find(
       (value) => value.email === user.email && value.password === user.password
     );
     if (found) {
-      user.name = found.name;
-      Navigate("/");
+      Object.keys(cart).length > 0 ? Navigate("/cart") : Navigate("/");
     } else {
-      setMsg("Invalid User");
+      setMsg("Invalid Credentials");
     }
   };
   return (
     <div>
-      <h3>Login Form</h3>
+      <h2>Login Form</h2>
       {msg}
       <p>
         <input
@@ -40,7 +39,7 @@ export default function Login() {
         <button onClick={handleSubmit}>Log In</button>
       </p>
       <p>
-        <Link to="../register">Create Account</Link>
+        <Link to="../register">New User Register Here!</Link>
       </p>
     </div>
   );
